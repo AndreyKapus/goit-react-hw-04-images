@@ -1,6 +1,7 @@
 import React from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
-import { ToastContainer } from 'react-toastify';
+
+import { ImageGallery } from './ImageGallery/ImageGallery';
 
 const axios = require('axios');
 
@@ -28,6 +29,7 @@ export class App extends React.Component {
     return (
       <div>
         <Searchbar onSubmit={this.handleFormSubmit} />
+        <ImageGallery pictureName={this.state.picture} />
       </div>
     );
   }

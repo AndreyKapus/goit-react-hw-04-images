@@ -9,7 +9,7 @@ export class Searchbar extends React.Component {
 
   handlePicNameChange = event => {
     this.setState({ picture: event.currentTarget.value.toLowerCase() });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   handleSubmit = event => {
