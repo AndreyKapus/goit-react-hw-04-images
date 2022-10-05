@@ -1,6 +1,6 @@
 import React from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
-
+import { Button } from './Button/Button';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 
 const axios = require('axios');
@@ -21,6 +21,7 @@ export class App extends React.Component {
       <div>
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery pictureName={this.state.picture} />
+        <Button />
       </div>
     );
   }

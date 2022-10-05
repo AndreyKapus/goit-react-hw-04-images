@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { App } from 'components/App';
 import css from './ImageGallry.module.css';
+import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
 // key = 29432159-064ba5645d6ae7f18ff2bb6d2
 
@@ -23,21 +24,11 @@ export class ImageGallery extends React.Component {
   }
 
   render() {
-    const { picture } = this.state;
     console.log(this.state.picture);
     return (
       <div>
         <ul className={css.ImageGallery}>
-          {picture &&
-            picture.map(({ id, webformatURL, tags, largeImageURL }) => (
-              <li title={tags} key={id} className={css.ImageGalleryItem}>
-                <img
-                  src={largeImageURL}
-                  alt="somepicture"
-                  className={css.img}
-                />
-              </li>
-            ))}
+          <ImageGalleryItem picture={this.state.picture} />
         </ul>
       </div>
     );
