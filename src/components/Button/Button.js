@@ -1,9 +1,12 @@
 import React from 'react';
+import css from './Button.module.css';
 
-export const Button = ({ loadMore }) => {
+export const Button = ({ LoadMore }) => {
   return (
-    <button type="button" onClick={loadMore}>
-      Load more
-    </button>
+    <div className={css.wraper}>
+      <button className={css.ButtonLoad} type="button" onClick={LoadMore}>
+        Load more
+      </button>
+    </div>
   );
 };

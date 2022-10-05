@@ -10,6 +10,14 @@ const axios = require('axios');
 export class App extends React.Component {
   state = {
     picture: '',
+    page: 1,
+  };
+
+  LoadMore = () => {
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }));
+    console.log(this.state.page);
   };
 
   handleFormSubmit = picture => {
@@ -20,8 +28,8 @@ export class App extends React.Component {
     return (
       <div>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        <ImageGallery pictureName={this.state.picture} />
-        <Button />
+        <ImageGallery pictureName={this.state.picture} page={this.state.page} />
+        <Button LoadMore={this.LoadMore} />
       </div>
     );
   }
