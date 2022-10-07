@@ -1,35 +1,28 @@
-import React from 'react';
+import { Component } from 'react';
 import css from './Searchbar.module.css';
-import { FaSearchLocation } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+import { FiSearch } from 'react-icons/fi';
+class SearchForm extends Component {
+  state = { qwery: '' };
 
-export class Searchbar extends React.Component {
-  state = {
-    picture: '',
+  hendleChange = e => {
+    this.setState({ qwery: e.currentTarget.value });
   };
-
-  handlePicNameChange = event => {
-    this.setState({ picture: event.currentTarget.value.toLowerCase() });
-    // console.log(this.state);
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-
-    if (this.state.picture.trim() === '') {
-      alert('Введите название картинки');
-      return;
+  hendleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.qwery);
+    if (this.state.qwery === '') {
+      alert('Input field is empty!');
     }
-    this.props.onSubmit(this.state.picture);
-
-    this.setState({ picture: '' });
+    this.setState({ qwery: '' });
   };
 
   render() {
     return (
       <header className={css.Searchbar}>
-        <form className={css.SearchForm} onSubmit={this.handleSubmit}>
+        <form onSubmit={this.hendleSubmit} className={css.SearchForm}>
           <button type="submit" className={css.SearchFormButton}>
-            <FaSearchLocation />
+            <FiSearch />
             <span className={css.SearchFormButtonLabel}>Search</span>
           </button>
 
@@ -39,10 +32,16 @@ export class Searchbar extends React.Component {
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
-            onChange={this.handlePicNameChange}
+            onChange={this.hendleChange}
           />
         </form>
       </header>
     );
   }
 }
+
+SearchForm.propTypes = {
+  qwery: PropTypes.string,
+};
+
+export default SearchForm;

@@ -1,12 +1,15 @@
-import React from 'react';
 import css from './Button.module.css';
-
-export const Button = ({ LoadMore }) => {
+import PropTypes from 'prop-types';
+const Button = ({ onClick }) => {
   return (
-    <div className={css.wraper}>
-      <button className={css.ButtonLoad} type="button" onClick={LoadMore}>
-        Load more
-      </button>
-    </div>
+    <button className={css.Button} type="button" onClick={onClick}>
+      Load more
+    </button>
   );
 };
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+};
+
+export default Button;
