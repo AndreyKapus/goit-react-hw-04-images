@@ -2,6 +2,7 @@ import { Component } from 'react';
 import css from './Searchbar.module.css';
 import PropTypes from 'prop-types';
 import { FiSearch } from 'react-icons/fi';
+
 class SearchForm extends Component {
   state = { qwery: '' };
 

@@ -30,8 +30,6 @@ class App extends Component {
         behavior: 'smooth',
       });
     }
-    if (this.state.query === '') {
-    }
   }
 
   toggleModal = () => {
