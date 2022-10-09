@@ -15,7 +15,6 @@ class SearchForm extends Component {
     if (this.state.qwery === '') {
       alert('Input field is empty!');
     }
-    this.setState({ qwery: '' });
   };
 
   render() {
@@ -42,7 +41,7 @@ class SearchForm extends Component {
 }
 
 SearchForm.propTypes = {
-  qwery: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

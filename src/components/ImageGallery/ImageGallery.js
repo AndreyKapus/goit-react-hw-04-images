@@ -7,7 +7,6 @@ const ImageGallery = ({ pictures, bigImage }) => {
     <ul className={css.ImageGallery}>
       {pictures.map(({ id, webformatURL, largeImageURL }) => {
         const handleItemClick = () => bigImage(largeImageURL);
-
         return (
           <ImageGalleryItem
             key={id}
@@ -20,8 +19,13 @@ const ImageGallery = ({ pictures, bigImage }) => {
   );
 };
 ImageGallery.propTypes = {
-  pictures: PropTypes.array,
-  bigImage: PropTypes.func,
+  id: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    webformatURL: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+  }),
+  pictures: PropTypes.array.isRequired,
+  bigImage: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;

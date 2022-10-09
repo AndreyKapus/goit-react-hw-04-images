@@ -1,5 +1,6 @@
 import css from './ImageGalleryItem.module.css';
 import PropTypes from 'prop-types';
+
 const ImageGalleryItem = ({ image, onClick }) => {
   return (
     <li className={css.ImageGalleryItem}>
@@ -14,10 +15,8 @@ const ImageGalleryItem = ({ image, onClick }) => {
 };
 
 ImageGalleryItem.propTypes = {
-  webformatURL: PropTypes.string,
-  largeImageURL: PropTypes.string,
-  tags: PropTypes.string,
-  bigImage: PropTypes.func,
+  image: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ImageGalleryItem;

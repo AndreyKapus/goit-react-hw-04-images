@@ -65,7 +65,17 @@ class App extends Component {
       .finally(() => this.setState({ isLoading: false }));
   };
   onChangeQwery = query => {
-    this.setState({ query: query, page: 1, pictures: [], error: null });
+    if (query !== this.state.query) {
+      this.setState({
+        query: query,
+        page: 1,
+        pictures: [],
+        error: null,
+      });
+    }
+    if (query === this.state.query) {
+      this.setState({ page: this.state.page + 1 });
+    }
   };
 
   render() {
