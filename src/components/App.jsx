@@ -64,10 +64,12 @@ export const App = () => {
     setPage(page + 1);
   };
 
-  const changeSearch = query => {
-    setQuery(query);
-    setPage(1);
-    setImages([]);
+  const changeSearch = newQuery => {
+    if (query !== newQuery) {
+      setQuery(newQuery);
+      setPage(1);
+      setImages([]);
+    }
   };
 
   const toggleModal = (modalImg, tags) => {
@@ -78,7 +80,7 @@ export const App = () => {
 
   return (
     <div className={styles.App}>
-      <Searchbar changeSearch={changeSearch} />
+      <Searchbar changeSearch={changeSearch} handleLoadMore={handleLoadMore} />
       <ImageGallery images={images} toggleModal={toggleModal} />
       {loading && <Loader />}
       {images.length > 0 && images.length < totalImg && (

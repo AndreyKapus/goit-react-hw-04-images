@@ -4,7 +4,7 @@ import Notiflix from 'notiflix';
 import { FcSearch } from 'react-icons/fc';
 import styles from './Searchbar.module.css';
 
-export const Searchbar = ({ changeSearch }) => {
+export const Searchbar = ({ changeSearch, handleLoadMore }) => {
   const [input, setInput] = useState('');
 
   const handleSearch = element => {
@@ -17,7 +17,8 @@ export const Searchbar = ({ changeSearch }) => {
       return Notiflix.Notify.failure('Please enter your query.');
     }
     changeSearch(input);
-    setInput('');
+    handleLoadMore();
+    // setInput('');
   };
 
   return (
@@ -42,4 +43,5 @@ export const Searchbar = ({ changeSearch }) => {
 };
 Searchbar.propTypes = {
   changeSearch: PropTypes.func.isRequired,
+  handleLoadMore: PropTypes.func.isRequired,
 };
